@@ -1,0 +1,15 @@
+<?php
+namespace Starbug\Content\Admin\Display;
+
+use Starbug\Dojo\Display\GridDisplay;
+
+class CategoriesGrid extends GridDisplay {
+  public $model = "categories";
+  public $action = "admin";
+  public function buildDisplay($options) {
+    $this->dnd();
+    $this->insert(0, ["id", "plugin" => "starbug.grid.columns.tree", "sortable" => "false"]);
+    $this->add(["name", "sortable" => "false"]);
+    $this->add(["position", "sortable" => "false"]);
+  }
+}
